@@ -1,0 +1,169 @@
+To see the documentation of commands use:  man command
+
+1.to list files and directory of current directory in long format: ls -l
+
+2. to change directory: cd directory name
+
+3. to clear terminal: clear
+
+4. See list of all directory and files: ls
+
+5. to open the particular code: code file_name
+
+6. display help information specially for cd command: help cd
+
+7. to read full documentation inside the terminal about commands:  man cd
+
+8. to see current working directory: pwd
+
+9. to go home directory: cd ~
+
+10. to see the owner/user of the system: whoami
+
+11. mkdir : to make directory
+
+12. rmdir : to remove directory
+
+13. cd : get direct back to home directory
+
+14. cd .. : get back from present directory
+
+It works on LIFO method Last In, First Out
+15. pushd <directory_name> : saves the current directory on the stack and switches to a new directory
+
+16. popd : Removes the top directory from the stack and changes to the next directory on the stack
+
+17. dirs -v : to see the position in stack
+
+18. tree : to see the nested directories
+
+How to filter the result of the ls command with WildCard Characters
+19. ls <char>* : to search directories and files starting form any character in current directory
+
+20. ls [char1char2]* : to search using both character
+
+21. ls *<.prefix> : to search using prefix of any file
+
+22. ls *.?? : to see files that have extensions that are 2 characters long, for 3 characters just add ? At last to make (basically depends on ? How many character long extension u wanna see)
+
+23. ls [[:upper:]]* : to see the upper case files and directories
+
+24. ls [[:lower:]]* : to see lower case files and directories
+
+25. touch <file_name> : to make file 
+
+
+Finding files
+26. whereis <name> : Displays the locations of all associated files for the specified command, including the binary, source, and manual (man) files, if they exist. 
+
+27. whereis -b <name> : Displays only the binary location of the specified command, excluding source and man pages. 
+
+28. which <name> : to find the location of an executable file
+
+29. find . -name <name> : give the list of all the md files that are in the current directory
+
+30. find . -type d : to find all the directories 
+
+31. find . -type f : to find all the files
+
+
+How to work with Directories
+32. mkdir <name1 name2> : for creating multiple directories
+
+33. mkdir -p  project01/sub1/sub2 :for creating sub directories
+
+34.  ls project01/ : to see the sub directory
+
+35. mv <file_name> <destination> : to move file to other directory
+
+36. cp <curr_destination>/<file_name> <destination> : it will copy the fie form current directory and paste it in the other directory
+
+37.  rm <file_name> : remove the file
+
+38. rm <char>* : remove all the files starting from that chracter
+
+39. rmdir <char>* : remove all the directory starting from that character
+
+How to view file contents 
+40. cat <file_name> : to see the content of the file
+
+42. head <file_name> : to see the first 10 lines of the file
+
+43. tail <file_name> : to see the last 10 lines of the file
+
+44. head -n <file_name> : to see the n number of lines of file 
+
+45. more <file_name> : to see in the reading format and by just spacing can read more
+
+46. less <file_name> : show less data of file 
+
+
+/anything : used to search anything in the file
+
+
+47. grep  “<text>” <file_name> : useful for finding text patterns, keywords, or lines containing certain strings in files
+
+
+Environment Variables are the specific settings within these operating systems that store configuration details and provide information about the system environment. 
+
+48. env : to see all of the environment variable that are currently available
+
+49. echo $<variable_name> : to get value of that environment variable 
+
+50. echo $PATH : display the current value of the PATH environment variable 
+
+51. echo <variable_name>=value : to create a new environment variable
+
+How to use Redirection and Pipelines
+52. ls -l > <file_name> : lists the contents of a directory in long format and saves the output to a file 
+
+53. ls -l >> <file_name> : appends the directory listing in long format to the file 
+
+> overwrites the file.
+>> appends to the file without erasing the existing content.
+
+ls -l ./dir : if dir not exist we get a message that no such directory exist
+
+54. ls -l ./dir 2> <file_name> :  to redirect the standard error (no such directory exist) into file  
+
+55. ls -l ./dir > error.txt 2>&1 : to redirect the standard out and standard error to the same file, 1 and 2 means we are saying stream one and stream two redirect to these files
+
+56.  ls -l >> error.txt 2>&1 : redirect the standard output and the standard erros to the same file, can also use this (ls -l &> file_name)
+
+57. cat file1 file2 > newfile : it redirect and concat the data present in the both file into newfile
+
+A Pipeline ( | ) allows you to connect multiple commands so that the output of one command becomes the input for the next. 
+
+
+
+How to modify file permission 
+r : read
+w : write
+x : execute
+
+-rw-rw-rx- 1 vscode root 444 date&time filename
+
+(-rw-rw-rx) first will show the user permission - second will show the group permission - other permissions
+
+1 is the number of hardlinks
+
+vscode is the owner
+
+root is the group owner
+
+444 no. of bytes or the size of the file
+
+58. ls -l : list all the files and directories in long format and showing the permission 
+
+59. sudo chown <owner_name>filename : it will change the owner of file
+  
+60. sudo chown :<owner_name> newFile.txt : it will change the group owner of the file
+
+61. chmod +x file_name : it will change the permisson of the file, it will allow execution as (+x) is there
+
+
+    owner         group          others
+ r    w   x    |  r    w    x   |  r     w     x 
+(4) (2) (1)  | (4) (2) (1)  |  (4)  (2)  (1)
+
+example: chmod 664 script.sh : this will give -rw-rw-r- permission to the file , written in octal format

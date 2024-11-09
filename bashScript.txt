@@ -1,0 +1,17 @@
+What is Bash Script
+
+Bash Script is a file that contains one or more commands that is meant to be executed within your bash shell
+
+
+Shebang(#!) : used to specify the interpreter that should execute the file 
+
+Without a shebang, you would need to manually specify the interpreter every time you run the script, e.g., bash script.sh 
+
+With a shebang, you can make the script executable, and the system will automatically use the specified interpreter when you run it with ./script.sh. 
+
+# : these are the called Comments and are used to document your scripts, provide clarity in context to what you’re creating here.
+
+
+To run a script directly by just typing its filename, you need to make sure the script is executable and is located in a directory that is part of your PATH environment variable 
+
+If we want to run the Bash file we first need give permission to that file, then we can use ./filename to run the file , but if we want to run using filename only then we need echo $PATH to see the path then need to make directory and sub directory use mkdir -p /home/vscode/.local/bin this will make a local directory in the vscode directory and bin sub directory in the local, then we need to copy the file into that directory cp hello_world /home/vscode/.local/bin, only then we can run using filename only 
